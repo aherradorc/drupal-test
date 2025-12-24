@@ -1,60 +1,20 @@
-# gitignore template for Drupal 8 projects
-#
-# earlier versions of Drupal are tracked in `community/PHP/`
-#
-# follows official upstream conventions:
-# https://www.drupal.org/docs/develop/using-composer
+# ==========================================
+# Drupal 11 - .Gitignore
+# Track only custom code and sensitive configuration
+# ==========================================
 
-# Ignore configuration files that may contain sensitive information
-/web/sites/*/*settings*.php
-/web/sites/*/*services*.yml
-
-# Ignore paths that may contain user-generated content
-/web/sites/*/files
-/web/sites/*/public
-/web/sites/*/private
-/web/sites/*/files-public
-/web/sites/*/files-private
-
-# Ignore paths that may contain temporary files
-/web/sites/*/translations
-/web/sites/*/tmp
-/web/sites/*/cache
-
-# Ignore drupal core (if not versioning drupal sources)
-/web/vendor
-/web/core
-/web/modules/README.txt
+# -----------------------
+# Drupal core & contrib (managed by Composer)
+# -----------------------
 /web/modules/contrib
-/web/profiles/README.txt
-/web/profiles/contrib
-/web/sites/development.services.yml
-/web/sites/example.settings.local.php
-/web/sites/example.sites.php
-/web/sites/README.txt
-/web/themes/README.txt
 /web/themes/contrib
-/web/.csslintrc
-/web/.editorconfig
-/web/.eslintignore
-/web/.eslintrc.json
-/web/.gitattributes
-/web/.htaccess
-/web/.ht.router.php
-/web/autoload.php
-/web/composer.json
-/web/composer.lock
-/web/example.gitignore
-/web/index.php
-/web/INSTALL.txt
-/web/LICENSE.txt
-/web/README.txt
-/web/robots.txt
-/web/update.php
-/web/web.config
+/web/profiles/contrib
 
-# Ignore vendor dependencies and scripts
+# -----------------------
+# Composer dependencies
+# -----------------------
 /vendor
+/web/vendor
 /composer.phar
 /composer
 /robo.phar
@@ -63,3 +23,57 @@
 /drush
 /drupal.phar
 /drupal
+
+# Keep composer.lock versioned for consistent environments
+!/composer.lock
+
+# -----------------------
+# Custom site files
+# -----------------------
+/web/sites/*/files
+/web/sites/*/public
+/web/sites/*/private
+/web/sites/*/files-public
+/web/sites/*/files-private
+/web/sites/*/tmp
+/web/sites/*/cache
+/web/sites/*/php
+/web/sites/*/translations
+/web/sites/simpletest
+/web/sites/*/logs
+/web/sites/*/backups
+
+# -----------------------
+# Local and sensitive configs
+# -----------------------
+/web/sites/*/settings*.php
+/web/sites/*/services*.yml
+/web/sites/development.services.yml
+/web/sites/example.settings.local.php
+/web/sites/example.sites.php
+
+# -----------------------
+# System-generated files
+# -----------------------
+# Core files should be tracked, unless you use a pure Composer approach
+#/web/.htaccess      # tracked
+#/web/index.php      # tracked
+#/web/update.php     # tracked
+/web/web.config
+/web/INSTALL.txt
+/web/README.txt
+/web/LICENSE.txt
+/web/robots.txt
+/web/example.gitignore
+/web/.ht.router.php
+/web/autoload.php
+
+# -----------------------
+# Editor/IDE files
+# -----------------------
+/.idea
+/.vscode
+*.swp
+*.swo
+*.bak
+*.tmp
