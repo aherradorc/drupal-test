@@ -1,1 +1,4 @@
-# Empty libraries file to inherit from parent theme bootstrap5
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
